@@ -381,7 +381,7 @@ end
 )
 -- move 3
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
-    if inp.KeyCode == Enum.KeyCode.Three then
+    if inp.KeyCode == Enum.KeyCode.Four then
 local Anim = Instance.new("Animation")
 Anim.AnimationId = "rbxassetid://4348788816"
 local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
@@ -455,7 +455,7 @@ wait(0.2)
 end)
 -- e
 game:GetService("UserInputService").InputBegan:Connect(function(inp) 
-    if inp.KeyCode == Enum.KeyCode.Four then
+    if inp.KeyCode == Enum.KeyCode.Five then
 local Anim = Instance.new("Animation")
         Anim.AnimationId = "rbxassetid://5657143572"
         local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
@@ -479,7 +479,7 @@ wait(0)
 end
 -- die 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
-   if inp.KeyCode == Enum.KeyCode.Five then
+   if inp.KeyCode == Enum.KeyCode.Three then
 _G.cdr = false
 if _G.cdr then return end
 _G.cdr = true
