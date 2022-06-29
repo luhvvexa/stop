@@ -529,7 +529,7 @@ if pp.Name == 'KnifeSlashProjectileDark' then
 rp = yeaeoase.Changed:Connect(function(pr)
     if pr == "Anchored" then
 if not pr.Anchored then
-am = am + 20
+am = am + 3
 val.Value = am
 rp:Disconnect()
 end
@@ -539,7 +539,7 @@ end)
 end
 end)
 detect2 = val:GetPropertyChangedSignal("Value"):Connect(function()
-if val.Value == amm*20 then
+if val.Value == amm*3 then
 tab = {}
 tab2 = {}
 for _,v in pairs(char.Attacks:GetChildren()) do
