@@ -203,15 +203,7 @@ game:GetService("ReplicatedStorage").Remotes.Damage:InvokeServer(unpack(args))
 wait(0.1)
 end
 end
-local A_1 = {
-                        [1] = getrenv()._G.Pass,
-                        [2] = "Chatted",
-                        [3] = [[[ DATA BASE ] *
-LOAD_BRAVERY]],
-                        [4] = Color3.new(1, 0, 0)
-                    }
-                    local Event = game:GetService("ReplicatedStorage").Remotes.Events
-                    Event:FireServer(A_1)
+
 
 _G.cdr = false
     if _G.cdr then
@@ -642,3 +634,97 @@ uis.InputBegan:Connect(function(inputs, event)
 	end
 
 end)
+-- reload aura
+game:GetService("UserInputService").InputBegan:Connect(function(inp)
+if inputs.KeyCode == Enum.KeyCode.R then 
+local A_1 = {
+                        [1] = getrenv()._G.Pass,
+                        [2] = "Chatted",
+                        [3] = [[ reloading aura..   *,
+                        [4] = Color3.new(1, 0, 0)
+                    }
+                    local Event = game:GetService("ReplicatedStorage").Remotes.Events
+                    Event:FireServer(A_1)
+    local Event = game:GetService("ReplicatedStorage").Remotes.Events
+    Event:FireServer(A_1)
+    wait(4)
+    local userInputService = game:GetService("UserInputService")
+    on = true
+    posz = 0
+    posx = 0
+    local perseverance = {
+    Parent = game.workspace,
+    Name = 'ye',
+    Material = Enum.Material.Neon,
+    Color = Color3.fromRGB(129, 154, 213),
+    Transparency = 0
+    }
+        times = 0
+        _G.soulmode = 1
+    _G.closed = false
+    local effects = game.Players.LocalPlayer.Character.Effects
+    local rs = game:GetService("RunService")
+    
+            local player = game.Players.LocalPlayer
+    local Character = player.Character
+    local args = {
+        [1] = {
+            [1] = getrenv()._G.Pass,
+            [2] = "KnifeProjectileOrange",
+            [3] = "Spawn",
+            [4] = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector *10 + Vector3.new(math.random(0,35),math.random(0,30),math.random(0,33))
+        }
+    }
+    game:GetService("ReplicatedStorage").Remotes.CharaMoves:InvokeServer(unpack(args))
+    local projectiles = game.Players.LocalPlayer.Character.Attacks
+    for i,v in pairs(projectiles:GetChildren()) do
+    if v.Name == "KnifeSlashProjectileOrange" or "Removing" then
+        v:WaitForChild("BodyVelocity"):Destroy()
+        v:WaitForChild("ParticleEmitter"):Destroy()
+        coroutine.resume(coroutine.create(function() 
+    
+            
+    while 
+    wait(0.05)
+    do
+        if _G.closed then
+            break
+            end
+        times = times + 1
+        if 
+        times == 6
+        then 
+        times = 0
+        end
+        if times == 1 then
+    v.Position = Character.HumanoidRootPart.Position - Vector3.new(0,40,0)
+    elseif times == 2 then
+        v.Position = Character.HumanoidRootPart.Position - Vector3.new(10,40,0)
+    elseif times == 3 then
+        v.Position = Character.HumanoidRootPart.Position - Vector3.new(0,30,10)
+    elseif times == 4 then
+        v.Position = Character.HumanoidRootPart.Position - Vector3.new(0,30,-10)
+    elseif times == 5 then
+        v.Position = Character.HumanoidRootPart.Position - Vector3.new(-10,30,0)
+        end
+    
+    
+    local args1 = {
+        [1] = {
+            [1] = getrenv()._G.Pass,
+            [2] = "KnifeProjectileOrange",
+            [3] = "Hit",
+            [4] = v,
+            [5] = v.CFrame,
+            [6] = perseverance
+        }
+    }
+    
+    
+    if _G.soulmode == 1 then
+    game:GetService("ReplicatedStorage").Remotes.CharaMoves:InvokeServer(unpack(args1))
+    end
+    end
+    end))
+    end
+    end
